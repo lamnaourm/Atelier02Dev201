@@ -1,5 +1,5 @@
-import './App.css';
-import React from 'react';
+import "./App.css";
+import React from "react";
 
 var etudiants = [
   { nom: "Manar", math: 10.5, phys: 12.0, fr: 16.0 },
@@ -12,42 +12,53 @@ var etudiants = [
   { nom: "Riyad", math: 18.0, phys: 13.0, fr: 15.0 },
 ];
 
-
-class Liste1 extends React.Component{
-  render(){
-    return <ul>
-      {etudiants.map(item => <li>{item.nom} - {((item.math+item.phys+item.fr)/3).toFixed(2)}</li>)}
-    </ul>
+class Liste1 extends React.Component {
+  render() {
+    return (
+      <ul>
+        {etudiants.map((item) => (
+          <li>
+            {item.nom} - {((item.math + item.phys + item.fr) / 3).toFixed(2)}
+          </li>
+        ))}
+      </ul>
+    );
   }
 }
 
 class Liste2 extends React.Component {
-  render(){
-    return <table>
-      <tr>
-        <th>Nom</th>
-        <th>Math</th>
-        <th>Phys</th>
-        <th>Fr</th>
-        <th>Moyenne</th>
-      </tr>
-      {etudiants.map(item => 
-      <tr>
-        <td>{item.nom}</td>
-        <td>{item.math}</td>
-        <td>{item.phys}</td>
-        <td>{item.fr}</td>
-        <td>{((item.math+item.phys+item.fr)/3).toFixed(2)}</td>
-      </tr>
-      )}
-    </table>
+  render() {
+    return (
+      <table className="blueTable">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Math</th>
+            <th>Phys</th>
+            <th>Fr</th>
+            <th>Moyenne</th>
+          </tr>
+        </thead>
+        <tbody>
+          {etudiants.map((item) => (
+            <tr>
+              <td>{item.nom}</td>
+              <td>{item.math}</td>
+              <td>{item.phys}</td>
+              <td>{item.fr}</td>
+              <td>{((item.math + item.phys + item.fr) / 3).toFixed(2)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
   }
 }
-function App() { 
+function App() {
   return (
     <div>
-    <Liste1/>
-    <Liste2 />
+      <Liste1 />
+      <Liste2 />
     </div>
   );
 }
